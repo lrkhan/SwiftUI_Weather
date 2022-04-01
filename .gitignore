@@ -111,3 +111,8 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
+
+
+#API Key for One Call OpenWeather
+APIKey.swift
+
