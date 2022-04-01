@@ -8,10 +8,6 @@
 import Foundation
 import SwiftUI
 
-enum WeatherCondition: String {
-    case Thunderstorm, Drizzle, Rain, Snow, Atmosphere, Clear, Clouds
-}
-
 func getIcon(icon: String) -> Image {
     var imgName = "default"
     
