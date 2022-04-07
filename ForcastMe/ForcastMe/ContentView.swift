@@ -17,24 +17,51 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
+            
             ScrollView {
-                CurrentWatherView(isMetric: $isMetric, hourlyData: $data.hourly, currentData: $data.current)
-                //getIcon(icon: weather.icon)
-                DailyView(isMetric: $isMetric, dailyData: $data.daily)
-                
-                Toggle("Use Metric Units", isOn: $isMetric)
-                    .padding(.horizontal)
-                    .frame(width: 350)
+                if data.timezone_offset == Response().timezone_offset {
+                    Text("")
+                } else {
+                    CurrentWatherView(isMetric: $isMetric, hourlyData: $data.hourly, currentData: $data.current)
+                    //getIcon(icon: weather.icon)
+                    DailyView(isMetric: $isMetric, dailyData: $data.daily)
                     
+                    Toggle("Use Metric Units", isOn: $isMetric)
+                        .padding(.horizontal)
+                        .frame(width: 350)
+                }
             }
+            .refreshable {
+                print("refreshing Data")
+                await loadWeather()
+            }
+            
             .navigationTitle("Weather")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action:{
+                        Task {
+                            await loadWeather()
+                        }
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                    }
+                }
+            }
         }
         .task {
-            if let dat = await getWeather(lat: testLat, lon: testLon) {
-                data = dat
-            } else {
-                print("Error")
-            }
+            await loadWeather()
+        }
+    }
+    
+    func loadWeather() async {
+        if let dat = await getWeather(lat: testLat, lon: testLon) {
+            data = dat
+        } else {
+            print("Error")
         }
     }
 }
