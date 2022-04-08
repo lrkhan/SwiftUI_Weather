@@ -19,7 +19,7 @@ My API key is NOT INCLUDED in the project. Additionally, the app is desinged for
 ### Main Screen
 <img src="./Images/mainF.png" width="250" alt="Main Screen Image - Imperial Units " class="center"> <img src="./Images/mainC.png" width="250" alt="Main Screen Image - Metric Units " class="center">
 
-The main screen takes a second to load up all the weather day (based on user's internet speed). The user is immediately shown the current weather information in a gray rectangle. This includes the weather condition, temperature, "feels-like" temperature, humidity, UV index, windspeed, the sunrise time, and the sunset time. The location is stated inthe bottom left. Additionally, the User can click on Hourly to see the hourly weather forecast or scroll down for the daily forecast.
+The main screen takes a second to load up all the weather data (based on user's internet speed). The user is immediately shown the current weather information in a gray rectangle. This includes the weather condition, temperature, "feels-like" temperature, humidity, UV index, windspeed, the sunrise time, and the sunset time. The location is stated inthe bottom left. Additionally, the User can click on Hourly to see the hourly weather forecast or scroll down for the daily forecast.
 
 ### Hourly Weather Data
 <img src="./Images/hourF.png" width="250" alt="Hourly Weather Image - Imperial Units " class="center"> <img src="./Images/hourC.png" width="250" alt="Hourly Weather Image - Metric Units " class="center">
